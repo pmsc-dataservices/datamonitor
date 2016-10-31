@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 	
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/context   
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+">
+
+	<!-- Auto-detect DAOs -->
+	<context:component-scan base-package="com.weather.db"/>
+	<context:component-scan base-package="base"/>
+
+	<context:property-placeholder location="classpath:dbconfig.properties" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close" 
+		p:driverClass="${jdbc.driverClassName}"
+		p:jdbcUrl="${jdbc.url}" 
+		p:user="${jdbc.username}" 
+		p:password="${jdbc.password}">
+		<!-- 每60秒检查所有连接池中的空闲连接。Default: 0 -->
+		<property name="idleConnectionTestPeriod" value="60" />
+ 		<!--如果设为true那么在取得连接的同时将校验连接的有效性。Default: false -->
+		<property name="testConnectionOnCheckin" value="true" />
+		<!--c3p0将建一张名为Test的空表，并使用其自带的查询语句进行测试。如果定义了这个参数那么 属性preferredTestQuery将被忽略。你不能在这张Test表上进行任何操作，它将只供c3p0测试 
+			使用。Default: null -->
+		<!-- <property name="automaticTestTable" value="Test" /> -->
+		<property name="preferredTestQuery" value="select * from dual"/>
+	 </bean>
+	
+	 <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration"/>
+		<property name="packagesToScan" value="com.weather.db.entity"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.generate_statistics">${hibernate.generate_statistics}</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.c3p0.maxIdleTime">180</prop>
+			</props>
+		</property>
+		<property name="eventListeners">
+			<map>
+				<entry key="merge">
+					<bean
+						class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+
+	<!-- Allow declarative transaction management using the @Transactional annotation -->
+	<tx:annotation-driven transaction-manager="txManager" />
+
+	<!-- Transaction manager for the Hibernate SessionFactory -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		>
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <!-- 以get 、 find 开头的方法是只读事务 -->  
+        	<tx:method name="get*" read-only="true"/>  
+        	<tx:method name="find*" read-only="true"/>  
+       		<!-- 其他方法是默认 -->  
+        	<tx:method name="save*"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="bizMethods" expression="execution(* com.weather.db.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="bizMethods" />
+    </aop:config>
+	
+	<!-- Apply persistence exception translation on @Repository classes -->
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	
+	<bean id="assService" class="com.weather.db.service.AssignmentService">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+</beans>
