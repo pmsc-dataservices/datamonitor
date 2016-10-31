@@ -1,0 +1,513 @@
+@CHARSET "UTF-8";
+html,body{
+	height:100%;
+	overflow: auto;
+}
+.row{
+	width: auto;
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-bottom: 60px;
+}
+.container1{
+	min-height:100%;
+	padding-right:0;
+	padding-left:0;
+	height: auto !important;
+  	height: 100%; /*IE6不识别min-height*/
+ 	position: relative;
+}
+#remember {
+	bottom: 4px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+.foot{
+	position: absolute;
+	bottom: 15px;
+	text-align: center;
+	width: 100%;
+	height: 60px;
+}
+
+.foot p{
+	float: none !important;
+	margin: 0;
+}
+
+#content{
+	min-height: 600px;
+}
+
+td p{
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	max-width:150px;
+}
+
+.dataContent tr td:last-child{
+	min-width:50px;
+}
+
+.period{
+	margin-top: 5px;
+	margin-left: 30px;
+}
+
+.param,#paramAdd{
+	vertical-align: top;
+}
+
+#paramAdd{
+	height: 25px;
+}
+
+.result{
+	margin: 0;
+}
+
+.badge{
+	margin: 5px 0;
+	background-color:#369bd7;
+	cursor: pointer;
+}
+
+.resulTab{
+	display: inline-block;
+	width: 80%;
+	margin-left: 20px;
+}
+
+.mTop{
+	padding: 8px 35px 8px 14px;
+	margin-bottom: 38px;
+}
+
+div.radio[id$='timing']{
+	margin-top: 5px;
+	vertical-align: top;
+}
+
+.timelabel{
+	display: inline-block;
+	margin-left: 30px;
+	vertical-align: top;
+}
+.timespan {
+	float: none;
+	margin: 0;
+	display: inline-block;
+	position: relative;
+	margin-top: 5px;
+	vertical-align: top;
+}
+
+#errorMsg,#pwdErrorMsg{
+	display: none;
+	color: red;
+	font-weight: bold;
+	text-shadow: none;
+	margin-left: 20px;
+}
+
+#resultTab_wrapper{
+	margin-top: 10px;
+}
+
+#filePath{
+	color: #317eac;
+}
+
+.selectedAss{
+	background-color: rgb(236, 161, 28);
+}
+
+/* .row-fluid div.dataContent{
+	width: 100%;
+} */
+
+.searchBtn{
+	margin-bottom:10px;
+}
+
+.datasave{
+	display:none;
+	/* display:inline; */
+}
+
+.datasave .icon_save,.mdatasave .icon_save{
+	background-image: url('../img/opa-icons-white16.png');
+	background-position: -48px -80px;
+}
+
+#pwdModal{
+	width: 400px;
+	left: 60%;
+}
+
+#pwdModal .modal-body{
+	min-height: 0;
+}
+
+#pwdForm{
+	margin-bottom:0;
+}
+
+#pwdModal .modal-body .control-group input{
+	width: 200px;
+}
+
+#pwdModal .modal-footer{
+	padding: 20px 15px 15px;
+}
+
+.pointer{
+	cursor:pointer;
+}
+
+#tianxiang,#fengxiang,#fengsu{
+	display:none;
+}
+
+#bowlG{
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	background-color: #f6f8fc;
+	opacity: 0.6;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#bowl_ringG{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	margin-top: -70px;
+	margin-left: -64px;
+	border: 11px solid #00437F;
+	-moz-border-radius: 128px;
+	-webkit-border-radius: 128px;
+	border-radius: 128px;
+	text-align: center;
+	line-height: 100px;
+	color: #00437F;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.ball_holderG {
+	position: absolute;
+	width: 34px;
+	height: 100px;
+	left: 34px;
+	top: 0px;
+	-webkit-animation-name: ball_moveG;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+.ballG {
+	position: absolute;
+	left: 0px;
+	top: -35px;
+	width: 40px;
+	height: 40px;
+	background: #D5D6D5;
+	-moz-border-radius: 43px;
+	-webkit-border-radius: 43px;
+	border-radius: 43px;
+}
+
+@-webkit-keyframes ball_moveG{
+0%{
+	-webkit-transform:rotate(0deg)}
+
+100%{
+	-webkit-transform:rotate(360deg)}
+
+}
+
+.container-fluid .fcdate{
+	background-color: white;
+	cursor: default;
+	width:176px;
+	margin-right:15px;
+}
+
+div.resulTab .row-fluid .span6 {
+	width: 40%;
+}
+
+.icon32.icon-plus:hover {
+	background-image: url('../img/opa-icons-color32.png');
+}
+
+.icon32.icon-plus{
+	vertical-align: top;
+	margin-top: -3px;
+	cursor:pointer;
+}
+
+.chzn-choices{
+	width: 490px;
+	background-color: #fff;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
+	background-image: -webkit-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+	background-image: -moz-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+	background-image: -o-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+	background-image: -ms-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+	background-image: linear-gradient(top, #eeeeee 1%, #ffffff 15%);
+	border: 1px solid #aaa;
+	margin: 0;
+	padding: 0;
+	cursor: text;
+	overflow: hidden;
+	height: auto !important;
+	height: 1%;
+	position: relative;
+	display:none;
+	border-radius: 3px;
+}
+
+.li-choices{
+	webkit-border-radius: 3px;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	background-color: #e4e4e4;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#eeeeee', GradientType=0 );
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+	background-image: -webkit-linear-gradient(top, #B2DEF3 20%, #93C0E9 50%, #8BBDD1 52%, #91B2C9 100%);
+	background-image: -moz-linear-gradient(top, #B2DEF3 20%, #93C0E9 50%, #8BBDD1 52%, #91B2C9 100%);
+	background-image: -o-linear-gradient(top, #B2DEF3 20%, #93C0E9 50%, #8BBDD1 52%, #91B2C9 100%);
+	background-image: -ms-linear-gradient(top, #B2DEF3 20%, #93C0E9 50%, #8BBDD1 52%, #91B2C9 100%);
+	background-image: linear-gradient(top, #B2DEF3 20%, #93C0E9 50%, #8BBDD1 52%, #91B2C9 100%);
+	-webkit-box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
+	box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
+	color: #333;
+	border: 1px solid #aaaaaa;
+	line-height: 13px;
+	padding: 3px;
+	margin: 5px 10px;
+	position: relative;
+	cursor: default;
+	width: 70px;
+	display: inline-block;
+}
+
+.choice-close{
+	display: block;
+	position: absolute;
+	right: 3px;
+	top: 4px;
+	width: 12px;
+	height: 13px;
+	font-size: 1px;
+	background: url('../img/chosen-sprite.png') right top no-repeat;
+}
+
+.select{
+	width: 185px;
+	border-radius: 3px;
+	border: 1px solid #cccccc;
+}
+
+.colum{
+	display: inline-block;
+	margin-left:10px;
+}
+
+.colum:first-child{
+	margin-left:0;
+}
+
+.ulDiv{
+	vertical-align: top;
+	margin-top: 3px;
+}
+table td.td{
+	vertical-align: middle;
+}
+
+.w176{
+	width:176px;
+}
+
+.w100{
+	width:100px;
+	display:inline-block;
+}
+
+.rtTitle{
+	position: absolute;
+	z-index: 5;
+	font-size: 25px;
+	top: 20px;
+	left: 20px;
+}
+
+.infoDiv{
+	display:none;
+	position: relative;
+}
+
+.infoDiv .up{
+	position: absolute;
+	right: 10px;
+	margin-top: -20px;
+}
+
+.infoDiv .det{
+	margin-top: 20px;
+}
+
+.infoDiv .det ul{
+	margin:0 10px;
+}
+
+.infoDiv .det li{
+	list-style:none;
+	width: 50%;
+	float: left;
+	padding: 5px 0;
+}
+
+.infoDiv .det li label{
+	display: inline-block;
+	width: 150px;
+	color: cadetblue;
+}
+
+.infoDiv .det li:last-child{
+	width: 100%;
+}
+
+.addForm .span1{
+	width:120px;
+	margin-left: 20px;
+	float: left;
+	margin-right: 0;
+}
+
+.msg{
+	margin-left: 50px;
+	font-size: 13px;
+	color: #73A839;
+	font-weight: normal;
+	text-shadow: none;
+}
+
+.dataModal{
+	width:620px;
+}
+
+#rtwrForm label{
+	display:inline-block;
+}
+
+#rtwrForm input[type='radio']{
+	margin-left:0;
+}
+
+.delBtn{
+	margin-left: 5px;
+}
+
+#dzbdForm label{
+	width:50px;
+}
+
+#dzbdForm .stasinput{
+	width:300px;
+}
+
+.tabhead{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.tabhead select{
+	width: auto;
+	margin-right: 20px;
+	max-width: 500px;
+}
+
+.filepath{
+	width:600px;
+	margin-left: 30px;
+}
+
+.tabdiv{
+	max-height: 400px;
+	overflow: auto;
+}
+
+.second-menu{
+	list-style: none;
+	display:none;
+	margin-left: 0;
+	background: #E4E4E4;
+}
+
+.second-menu > li{
+	border: 1px solid #D3D3D3;
+	margin-top: -1px;
+	border-left: 0;
+}
+
+.second-menu > li > a{
+	line-height: 30px;
+	padding-left: 50px;
+	text-decoration: none;
+}
+
+.second-menu > li.active{
+	background-color: #FFF;
+	cursor:default;
+}
+
+.second-menu > li.active > a:hover{
+	cursor:default;
+}
+
+.second-menu > li.active > a{
+	color: #555;
+}
+
+.nav-tabs.nav-stacked > li > a {
+	padding-left: 12px;
+	border-left: none;	
+}
+
+#piehover{
+	margin-top: -300px;
+	position: absolute;
+	margin-left: 550px;
+	text-shadow: none;
+	width: 400px;
+}
+
+#piehover a:hover{
+	cursor:pointer;
+}
+
+#piechart{
+	text-shadow: none;
+}
+
+#timespan,#avgtime{
+	color:#369BD7;
+}

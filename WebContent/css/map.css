@@ -1,0 +1,195 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.map {
+	position: relative;
+}
+
+.map img {
+	width: 100%
+}
+
+.map li {
+	list-style: none;
+	width: 2.2%;
+	height: 3.0%;
+	max-width: 20px;
+	max-height: 20px;
+	background: red;
+	border-radius: 20px;
+	position: absolute;
+}
+
+.map li.xinjiang {
+	top: 31.1%;
+	left: 26.5%
+}
+
+.map li.xizang {
+	left: 27.5%;
+	top: 53.8%
+}
+
+.map li.qinghai {
+	left: 42.8%;
+	top: 46.9%
+}
+
+.map li.neimenggu {
+	left: 62.9%;
+	top: 34.2%
+}
+
+.map li.sichuan {
+	left: 53.1%;
+	top: 60%
+}
+
+.map li.ningxia {
+	left: 58.8%;
+	top: 43.1%
+}
+
+.map li.gansu {
+	left: 55.4%;
+	top: 49.7%
+}
+
+.map li.yunnan {
+	left: 50.2%;
+	top: 75.8%
+}
+
+.map li.guizhou {
+	left: 59.6%;
+	top: 71.1%
+}
+
+.map li.chongqing {
+	left: 61.1%;
+	top: 62.9%
+}
+
+.map li.shan-xi {
+	left: 62.8%;
+	top: 51.5%
+} /* 陕西 */
+.map li.shanxi {
+	left: 67.9%;
+	top: 43.1%
+} /* 山西 */
+.map li.beijing {
+	left: 73.6%;
+	top: 33.5%
+}
+
+.map li.hebei {
+	left: 72.5%;
+	top: 40%
+}
+
+.map li.tianjin {
+	left: 77.4%;
+	top: 38.5%
+}
+
+.map li.liaoning {
+	left: 83%;
+	top: 29.5%
+}
+
+.map li.jilin {
+	left: 87.1%;
+	top: 23.5%
+}
+
+.map li.heilongjiang {
+	left: 87.9%;
+	top: 14.2%
+}
+
+.map li.shandong {
+	left: 77.1%;
+	top: 44.2%
+}
+
+.map li.henan {
+	left: 70.2%;
+	top: 51.6%
+}
+
+.map li.jiangsu {
+	left: 80.5%;
+	top: 52.6%
+}
+
+.map li.hubei {
+	left: 69.1%;
+	top: 58.8%
+}
+
+.map li.anhui {
+	left: 77.1%;
+	top: 56.5%
+}
+
+.map li.shanghai {
+	left: 85.5%;
+	top: 56.6%
+}
+
+.map li.hunan {
+	left: 67.9%;
+	top: 68.3%
+}
+
+.map li.jiangxi {
+	left: 75.1%;
+	top: 66.2%
+}
+
+.map li.zhejiang {
+	left: 82.2%;
+	top: 63.1%
+}
+
+.map li.fujian {
+	left: 79.7%;
+	top: 72%
+}
+
+.map li.guangxi {
+	left: 63.4%;
+	top: 78.8%
+}
+
+.map li.guangdong {
+	left: 71.9%;
+	top: 78%
+}
+
+.map li.hainan {
+	left: 65.6%;
+	top: 90.3%
+}
+
+.map li.aomen {
+	left: 72.5%;
+	top: 86.2%
+}
+
+.map li.xianggang {
+	left: 77.1%;
+	top: 83.1%
+}
+
+.map li.taiwan {
+	left: 87.3%;
+	top: 76.2%
+}
+
+.map li.suc {
+	background: green;
+}
